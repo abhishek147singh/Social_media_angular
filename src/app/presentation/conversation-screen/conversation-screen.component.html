@@ -1,0 +1,26 @@
+<div class="upper-container">
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h2>All Messages</h2>
+            </div>
+            <div class="btn-group">
+               <button class="btn1">NEW MESSAGES</button>
+               <button>MARK ALL AS READ</button> 
+            </div>
+            <div class="btn-group options-icon" >
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="friend-list-container">
+                <app-friend-list (updateCurrentUser)="updateCurrentUser($event)"></app-friend-list>
+            </div>
+            <div class="chat-screen-container">
+                <app-conversation-window [currentUser]="currentUser"></app-conversation-window>
+            </div>
+        </div>
+    </div>
+</div>

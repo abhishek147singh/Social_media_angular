@@ -1,0 +1,24 @@
+<div class="post-container" *ngIf="postData != undefined">
+    <div class="post" *ngFor="let post of postData.List">
+        <div class="post-image-contaiener">
+            <img src="{{post.PostImage}}" alt="post-image">
+        </div>
+        <div class="details">
+            <div class="profile-image-container">
+                <img src="{{post.ProfileImage}}" alt="post-image">
+            </div>
+            <div class="details-text">
+                <div>
+                    <h2>{{post.Name}}</h2>
+                    <p>{{post.Time}}</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="btn">
+        <button (click)="loadData()">Load More...</button>
+    </div>
+</div>

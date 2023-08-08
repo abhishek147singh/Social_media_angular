@@ -63,7 +63,8 @@
               "browserTarget": "ProjectWithCleanArct:build:production"
             },
             "development": {
-              "browserTarget": "ProjectWithCleanArct:build:development"
+              "browserTarget": "ProjectWithCleanArct:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

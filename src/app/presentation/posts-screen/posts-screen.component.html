@@ -1,0 +1,42 @@
+<ng-container *ngIf="userData !== undefined">
+<div class="profile">
+    <div class="profile-image">
+        <div class="image-container">
+            <img src="./../../assets/profile.jpeg" alt="Profile Imgage" />
+        </div>
+        <div>
+            {{userData.Name}}
+        </div>
+    </div>
+    <div class="details">
+        <div class="post-input">
+            <input type="text" placeholder="Create your post...." />
+        </div>
+        <div class="freatures">
+            <div class="freatures-btn">
+                <button class="btn-icon"><i class="fa-solid fa-music"></i></button>
+                <button class="btn-icon"><i class="fa-solid fa-image"></i></button>
+                <button class="btn-icon"><i class="fa-solid fa-video"></i></button>
+                <button class="btn-icon"><i class="fa-solid fa-camera"></i></button>
+                <button class="btn"> Post </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  class="friend-list">
+        <div class="container">
+            <div class="card" *ngFor="let friend of userData.FriendList">
+                <div class="image-conatiner">
+                    <img src="{{friend.ProfileImage}}" alt="Image"/>
+                </div>
+                <div class="details">
+                    <h3> {{ friend.Name }} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<div *ngIf="userData === undefined" class="loadingBox">
+    Loading...
+</div>
+<app-post-list></app-post-list>

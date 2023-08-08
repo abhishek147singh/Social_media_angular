@@ -1,0 +1,25 @@
+<div class="friendList" *ngIf="friendList !==  undefined">
+    <div class="search-box">
+        <input type="text" #box placeholder="Search...." (input)="fiterFriends(box.value)"/>
+    </div>
+    <div (click)="getConversationScreen(i)" class="card" *ngFor="let friend of friendList.List; index as i">
+        <div class="image-container">
+            <div class="image">
+                <img src="{{friend.ProfileImage}}" alt="Profile Image"/>
+            </div>
+        </div>
+        <div class="text-details" >
+            <div class="row">
+                <div>
+                    <h2>{{friend.Name}}</h2>      
+                </div>
+                <div>
+                   <p>2min Ago</p> 
+                </div>
+            </div>
+            <div>
+                <p>{{friend.LastMessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>

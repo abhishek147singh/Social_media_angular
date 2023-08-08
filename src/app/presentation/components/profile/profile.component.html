@@ -1,0 +1,19 @@
+<div class="profile" *ngIf="profileData !== undefined">
+    <div class="backroud-div"></div>
+    <div class="profile-img">
+        <img src="./../assets/profile.jpeg" alt="profile-img"/>
+    </div>
+    <div class="profile-details">
+        <h2>{{profileData.Name}}</h2>
+        <p>{{profileData.Location}}</p>
+        <div class="addtional-details">
+          <span>{{profileData.Description}}</span>|
+          <span>Follows - {{profileData.FollowsCount}}</span>|
+          <span>Followers - {{profileData.FollowersCount}}</span>
+        </div>
+        <div>
+          <button class="btn">Message</button>
+          <button class="btn share-profile"><i class="fa fa-share" aria-hidden="true"></i>Share Profile</button>
+        </div>
+    </div>
+  </div>

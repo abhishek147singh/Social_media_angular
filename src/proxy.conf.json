@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://app.smartkeeda.com/",
+      "secure": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+      , "changeOrigin": true
+    }
+  }

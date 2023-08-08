@@ -1,0 +1,8 @@
+<ng-container *ngIf="profileData !== undefined">
+    <app-profile [profileData]="profileData"></app-profile>
+    <app-skills></app-skills>
+    <app-gallery [PhotoList]="profileData.PhotoList"></app-gallery>
+</ng-container>
+<div *ngIf="profileData === undefined" class="loadingBox">
+    Loading...
+</div>

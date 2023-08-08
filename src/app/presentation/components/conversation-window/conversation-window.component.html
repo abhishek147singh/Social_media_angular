@@ -1,0 +1,25 @@
+<div class="chat-screen">
+    <div class="profile-details" *ngIf="currentUser !== undefined">
+        <div class="card">
+            <div class="image-container">
+                <div class="image">
+                    <img src="{{currentUser.ProfileImage}}" alt="Profile Image"/>
+                </div>
+            </div>
+            <div class="text-details" >
+                <div class="row">
+                    <h2>{{currentUser.Name}}</h2>   
+                </div>
+                <div>
+                    <p>Acting is just a way of living...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="coversation-screen">
+        <!-- <div class="chat-input">
+            <input type="text" />
+            <button><i class="fa-regular fa-paper-plane"></i></button>
+        </div> -->
+    </div>
+</div>
