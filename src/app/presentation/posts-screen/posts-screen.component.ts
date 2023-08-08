@@ -8,6 +8,7 @@ import { PostService } from 'src/app/service/posts.service';
   templateUrl: './posts-screen.component.html',
   styleUrls: ['./posts-screen.component.css']
 })
+
 export class PostsScreenComponent implements OnInit , OnDestroy {
   userData:PostProfileModel|undefined;
   postServiceSubscription:Subscription|undefined;
@@ -17,7 +18,6 @@ export class PostsScreenComponent implements OnInit , OnDestroy {
   ngOnInit(): void {
     this.postServiceSubscription = this.postService.getProfileData().subscribe(data => {
        this.userData = data; 
-       console.log(data);
      })
   }
 
