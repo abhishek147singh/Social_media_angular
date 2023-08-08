@@ -1,2 +1,3 @@
 # ProjectWithCleanArct
-[src/app]
+[app/src/](/app/src)
+  [src/app](/src/app/base)--
