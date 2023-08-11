@@ -1,7 +1,11 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { FriendListModel } from 'src/app/core/domain/friendList.model';
 import { PersonService } from 'src/app/service/person.service';
+import { loadFriendList } from 'src/app/store/actions/FriendList.action';
+import { AppState } from 'src/app/store/models/appState.model';
+import { getFriendList } from 'src/app/store/selectores/friendList.selector';
 
 @Component({
   selector: 'app-friend-list',
@@ -22,13 +26,14 @@ export class FriendListComponent implements OnInit , OnDestroy {
     ProfileImage:"./../../assets/profile.jpeg"
   };
 
-  constructor(private personService:PersonService){}
+  constructor(private store: Store<AppState> ){}
 
    ngOnInit(): void {
-      this.FrinedListSubscription = this.personService.getFriendsList().subscribe((data) => {
-          this.friendList = data;
-          this.originalData = data;
-          this.updateCurrentUser.emit(this.friendList.List?.at(0));
+      this.store.dispatch(loadFriendList());
+      this.store.select(getFriendList).subscribe(data => {
+        this.friendList = data;
+        this.originalData = data;
+        this.updateCurrentUser.emit(this.friendList.List?.at(0));
       })
    }
 
@@ -37,10 +42,6 @@ export class FriendListComponent implements OnInit , OnDestroy {
         this.FrinedListSubscription.unsubscribe();
       } 
    }
-
-//    updateUser(user:user){
-//     this.currentUser = user;
-//    }
 
    fiterFriends(key:string){
       if(this.friendList !== undefined && this.originalData !== undefined){

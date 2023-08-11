@@ -2,6 +2,10 @@ import { Component , OnInit , OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostListModel, postListItem } from 'src/app/core/domain/postList.model';
 import { PostService } from 'src/app/service/posts.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/models/appState.model';
+import { loadPosts } from 'src/app/store/actions/posts.actions';
+import { getPostList } from 'src/app/store/selectores/post.selector';
 
 @Component({
   selector: 'app-post-list',
@@ -13,11 +17,12 @@ export class PostListComponent implements OnInit , OnDestroy {
   postListSubscription:Subscription|undefined;
   currentPage:number = 1;
 
-  constructor(private postService:PostService){}
+  constructor(private postService:PostService , private store : Store<AppState>){}
 
   ngOnInit(): void {
-    this.postListSubscription = this.postService.getPostListData(this.currentPage).subscribe(data => {
-       this.postData = data;
+    this.store.dispatch(loadPosts({pageNo:1}));
+    this.postListSubscription = this.store.select(getPostList).subscribe(data => {
+      this.postData = data;
     })
   }
 
@@ -29,16 +34,7 @@ export class PostListComponent implements OnInit , OnDestroy {
 
   loadData(){
     this.currentPage++;
-    this.postListSubscription?.unsubscribe();
-
-    this.postListSubscription = this.postService.getPostListData(this.currentPage).subscribe(data => {
-      if(this.postData !== undefined){
-        this.postData.List = [...this.postData.List, ...JSON.parse(JSON.stringify(data)).List];
-        console.log(this.currentPage , data);
-      }else{
-        this.postData = JSON.parse(JSON.stringify(data));
-      }
-    })
+    this.store.dispatch(loadPosts({ pageNo : this.currentPage}));
   }
 
 }

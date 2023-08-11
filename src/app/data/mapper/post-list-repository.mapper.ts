@@ -5,11 +5,10 @@ import { PostListEntity } from "src/app/entity/PostList.entity";
 export class PostListRespositoryMapper extends listMapper<PostListEntity , PostListModel>{
     
     override mapFromList(param: PostListEntity): PostListModel {
-        const PostList:{
-            List:postListItem[]
-        } = {
-            List:[]
-        }
+        const PostList:PostListModel = {
+            List : [],
+            pageNo: -1
+        };
     
         param.PostList.forEach(post => {
             PostList.List.push({
@@ -18,8 +17,9 @@ export class PostListRespositoryMapper extends listMapper<PostListEntity , PostL
                 PostImage: post.PostImage,
                 Time: post.Time
             })
-        })
-
+        });
+        PostList.pageNo = param.PageNo;
+        
         return PostList;
     }
 }

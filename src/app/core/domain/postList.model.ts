@@ -7,5 +7,6 @@ export interface postListItem{
 
 export interface PostListModel{
     List:postListItem[];
+    pageNo:number;
 }
 

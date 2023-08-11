@@ -24,6 +24,6 @@ const routes:Routes = [
 
 export class conversationModule{
     constructor(){
-        console.log("converstion screen");
+        console.log("conversation screen");
     }
 };
