@@ -1,27 +1,68 @@
-# ProjectWithCleanArct
+# Angular project with clean archtecture
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
+## Folder structure
 
-## Development server
+&nbsp;&nbsp; 
+### [src/app](/src/app)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the main directory of the Application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+&nbsp;&nbsp; 
+#### [src/app/core](/src/app/core) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains all the declarations of mappers, models, repositories, services in specific structure.
 
-## Code scaffolding
+&nbsp;&nbsp; 
+##### [src/app/core/base](/src/app/core/base) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains mappers declarations(abstract classes of mappers).In this application mappers are used to map backend data with [view models](/src/app/core/domain).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+&nbsp;&nbsp; 
+##### [src/app/core/domain](/src/app/core/domain) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains models declarations which have used for view connectivity with api data.
 
-## Build
+&nbsp;&nbsp; 
+##### [src/app/core/repositories](/src/app/core/repositories) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains declarations of repositories. and repositories are the classes which fetch the data from backend and map with [view models](/src/app/core/domain) with mappers.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+&nbsp;&nbsp; 
+##### [src/app/core/services](/src/app/core/services) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains declarations of all services. In this Project services fetch the data from repositories.
 
-## Running unit tests
+&nbsp;&nbsp; 
+#### [src/app/data](/src/app/data) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains implementations of all mappers and repositories.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+&nbsp;&nbsp; 
+##### [src/app/data/mapper](/src/app/data/mapper) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains implementations of all mappers.
 
-## Running end-to-end tests
+&nbsp;&nbsp; 
+##### [src/app/data/repository](/src/app/data/repository) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains implementations of all repositories.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+&nbsp;&nbsp; 
+#### [src/app/entity](/src/app/entity) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains models of entities to connect with backend.
 
-## Further help
+&nbsp;&nbsp; 
+#### [src/app/presentation](/src/app/presentation) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains view logic (componets and screen code).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+&nbsp;&nbsp; 
+#### [src/app/service](/src/app/service) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This directory contains implementations of all servies which we have defined in [src/app/core/services](/src/app/core/services) directory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
